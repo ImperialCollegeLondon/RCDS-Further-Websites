@@ -1,28 +1,29 @@
-# Try This
+---
+title: Tutorial
+description: A guided walkthrough of DinoSoft's core features
+icon: material/school
+---
 
-<!-- TODO: Add front matter with title, description, and icon -->
+# :material-school: Tutorial
 
-On this page, we will build a small analysis of dinosaur diets together.
+In this tutorial, we will build a small analysis of dinosaur diets together.
 By the end, you will be able to load data, filter species, compute the
 Hunger Factor, and compare dietary habits.
 
-<!-- TODO: Convert this list into a task list with checkboxes using pymdownx.tasklist
-     See: https://squidfunk.github.io/mkdocs-material/reference/lists/#using-task-lists -->
+!!! abstract "What you will learn"
 
-<!-- TODO: Wrap "What you will learn" in an admonition: !!! abstract "What you will learn" -->
+    - [x] Loading and inspecting the sample dataset
+    - [x] Filtering dinosaurs by diet type
+    - [x] Computing the Hunger Factor
+    - [x] Ranking the biggest eaters
+    - [x] Understanding food ratios
 
-What you will learn:
+!!! note "Before you start"
 
-- Loading and inspecting the sample dataset
-- Filtering dinosaurs by diet type
-- Computing the Hunger Factor
-- Ranking the biggest eaters
-- Understanding food ratios
+    Make sure you have completed the [Quickstart](quickstart.md) and have
+    DinoSoft installed.
 
-<!-- TODO: Convert to admonition: !!! note "Before you start" -->
-
-Before you start, make sure you have completed the [Quickstart](quickstart.md)
-and have DinoSoft installed.
+---
 
 ## Step 1: Load the data
 
@@ -33,13 +34,12 @@ create a new script:
 from dinosoft import load_sample_data
 
 data = load_sample_data()
-print(f"Loaded {len(data)} dinosaurs")  # Prints: Loaded 7 dinosaurs
+print(f"Loaded {len(data)} dinosaurs")  # (1)!
 ```
 
-<!-- TODO: Replace the inline comments above with code annotations using (1)! syntax
-     See: https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations -->
+1. This should print `Loaded 7 dinosaurs`.
 
-We can inspect the first entry to see what a Dinosaur looks like:
+We can inspect the first entry to see what a `Dinosaur` looks like:
 
 ```python
 dino = data[0]
@@ -49,12 +49,14 @@ print(dino.weight_kg)     # 8000
 print(dino.food_sources)  # ['Ferns', 'cycads', 'horsetails']
 ```
 
-<!-- TODO: Convert to admonition: !!! tip "Best practice" -->
+!!! tip "Best practice"
 
-Best practice: In a real project, you would load your data from a file or
-database rather than using the built-in sample. See the
-[How-to Guide on adding your own data](how-to.md#add-your-own-dinosaurs)
-for details.
+    In a real project, you would load your data from a file or database
+    rather than using the built-in sample. See the
+    [How-to Guide on adding your own data](how-to.md#add-your-own-dinosaurs)
+    for details.
+
+---
 
 ## Step 2: Explore the diet breakdown
 
@@ -76,6 +78,8 @@ This returns a dictionary:
 The distribution across our sample matches the broader estimates from the
 DinoDiet project: herbivores dominate, with carnivores second and omnivores
 the rarest.
+
+---
 
 ## Step 3: Filter by diet
 
@@ -99,6 +103,8 @@ Velociraptor     eats Small herbivorous dinosaurs
 Spinosaurus      eats Fish, small to medium-sized dinosaurs
 ```
 
+---
+
 ## Step 4: Compute the Hunger Factor
 
 The Hunger Factor (HF) is a key metric in the DinoDiet project. Let's
@@ -118,13 +124,13 @@ Velociraptor: HF = 2.0
 Spinosaurus: HF = 100.0
 ```
 
-<!-- TODO: Convert to admonition: !!! info "What does the Hunger Factor actually mean?"
-     Also consider rendering the formula with pymdownx.arithmatex / MathJax: $\sqrt{x^2}$
-     See: https://squidfunk.github.io/mkdocs-material/reference/math/ -->
+!!! info "What does the Hunger Factor actually mean?"
 
-The HF is simply the absolute daily food intake in kilograms. The
-formula uses sqrt(x^2) for historical reasons. See the
-[Explanation](explanation.md#the-hunger-factor) page for the full story.
+    The HF is simply the absolute daily food intake in kilograms. The
+    formula uses $\sqrt{x^2}$ for historical reasons. See the
+    [Explanation](explanation.md#the-hunger-factor) page for the full story.
+
+---
 
 ## Step 5: Find the biggest eaters
 
@@ -148,10 +154,12 @@ for rank, dino in enumerate(top_3, 1):
 Notice that herbivores dominate this ranking — large body size means
 large food intake, regardless of diet type.
 
+---
+
 ## Step 6: Compare food ratios
 
 Raw intake doesn't tell the full story. A 56-tonne Brachiosaurus eating
-400 kg/day is actually eating a smaller proportion of its body weight
+400 kg/day is actually eating a smaller *proportion* of its body weight
 than a 15 kg Velociraptor eating just 2 kg/day.
 
 Let's compare using `food_ratio()`:
@@ -172,26 +180,26 @@ for dino in data:
 | Spinosaurus | 100 kg | 7,000 kg | 1.4% |
 | Oviraptor | 3 kg | 40 kg | 7.5% |
 
-<!-- TODO: Convert to admonition: !!! success "Key insight" -->
+!!! success "Key insight"
 
-Key insight: Smaller dinosaurs have significantly higher food ratios.
-Velociraptor eats 13.3% of its body weight daily — almost 20x the ratio
-of Brachiosaurus.
+    Smaller dinosaurs have significantly higher food ratios. Velociraptor
+    eats **13.3%** of its body weight daily — almost 20x the ratio of
+    Brachiosaurus.
 
-## Congratulations!
+---
 
-<!-- TODO: Convert into a task list with checkboxes and add emoji: :material-party-popper: -->
+## :material-party-popper: Congratulations!
 
 You have successfully:
 
-- Loaded the sample dataset
-- Explored the diet breakdown
-- Filtered species by diet type
-- Computed the Hunger Factor
-- Ranked the biggest eaters
-- Compared food ratios across species
+- [x] Loaded the sample dataset
+- [x] Explored the diet breakdown
+- [x] Filtered species by diet type
+- [x] Computed the Hunger Factor
+- [x] Ranked the biggest eaters
+- [x] Compared food ratios across species
 
-Next steps:
+**Next steps:**
 
 - Try the [How-to Guides](how-to.md) for specific tasks
 - Read the [Explanation](explanation.md) to understand the methodology

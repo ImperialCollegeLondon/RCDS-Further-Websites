@@ -1,88 +1,92 @@
-# Some Code
+---
+title: Examples
+description: Copy-pasteable code snippets for common DinoSoft tasks
+icon: material/flask
+---
 
-<!-- TODO: Add front matter with title, description, and icon -->
-
-<!-- TODO: Add title attributes to code blocks: ```python title="filename.py"
-     See: https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-a-title -->
-
-<!-- TODO: Wrap each "Output" section in a collapsible admonition:
-     ??? success "Output"
-     This lets readers expand only the outputs they want to check -->
+# :material-flask: Examples
 
 Small, self-contained code snippets demonstrating individual features.
-Each can be copied and run directly.
+Each example can be copied and run directly.
+
+---
 
 ## Load and print all species
 
-```python
+```python title="list_all.py"
 from dinosoft import load_sample_data
 
 for dino in load_sample_data():
     print(f"{dino.name} ({dino.diet.value})")
 ```
 
-Output:
+??? success "Output"
 
-```
-Triceratops (herbivore)
-Tyrannosaurus (carnivore)
-Stegosaurus (herbivore)
-Velociraptor (carnivore)
-Brachiosaurus (herbivore)
-Spinosaurus (carnivore)
-Oviraptor (omnivore)
-```
+    ```
+    Triceratops (herbivore)
+    Tyrannosaurus (carnivore)
+    Stegosaurus (herbivore)
+    Velociraptor (carnivore)
+    Brachiosaurus (herbivore)
+    Spinosaurus (carnivore)
+    Oviraptor (omnivore)
+    ```
+
+---
 
 ## Hunger Factor for all species
 
-```python
+```python title="all_hf.py"
 from dinosoft import load_sample_data, hunger_factor
 
 for dino in load_sample_data():
     print(f"{dino.name:16s}  HF = {hunger_factor(dino):6.1f}")
 ```
 
-Output:
+??? success "Output"
 
-```
-Triceratops       HF =  200.0
-Tyrannosaurus     HF =  230.0
-Stegosaurus       HF =   70.0
-Velociraptor      HF =    2.0
-Brachiosaurus     HF =  400.0
-Spinosaurus       HF =  100.0
-Oviraptor         HF =    3.0
-```
+    ```
+    Triceratops       HF =  200.0
+    Tyrannosaurus     HF =  230.0
+    Stegosaurus       HF =   70.0
+    Velociraptor      HF =    2.0
+    Brachiosaurus     HF =  400.0
+    Spinosaurus       HF =  100.0
+    Oviraptor         HF =    3.0
+    ```
+
+---
 
 ## Diet pie chart with matplotlib
 
-```python
+```python title="pie_chart.py"
 import matplotlib.pyplot as plt
 from dinosoft import load_sample_data, diet_summary
 
 summary = diet_summary(load_sample_data())
 
-# Green for herbivore, red for carnivore, orange for omnivore
 plt.pie(
     summary.values(),
     labels=[k.title() for k in summary.keys()],
     autopct="%1.0f%%",
-    colors=["#4caf50", "#f44336", "#ff9800"],
+    colors=["#4caf50", "#f44336", "#ff9800"],  # (1)!
 )
 plt.title("Diet Distribution")
 plt.savefig("diet_pie.png")
 ```
 
-<!-- TODO: Add a code annotation on the colors line explaining the colour choices -->
+1. Green for herbivore, red for carnivore, orange for omnivore.
 
-<!-- TODO: Convert the note below into an admonition: !!! note -->
+!!! note
 
-Note: This example requires `matplotlib` which is not included in
-DinoSoft's dependencies. Install it with `pip install matplotlib`.
+    This example requires `matplotlib` which is not included in
+    DinoSoft's dependencies. Install it with `pip install matplotlib`.
+
+---
 
 ## Sort by food ratio
 
-```python
+```python title="sort_ratio.py"
 from dinosoft import load_sample_data
 
 data = load_sample_data()
@@ -92,21 +96,23 @@ for dino in by_ratio:
     print(f"{dino.name:16s}  {dino.food_ratio():.4f}")
 ```
 
-Output:
+??? success "Output"
 
-```
-Velociraptor      0.1333
-Oviraptor         0.0750
-Tyrannosaurus     0.0288
-Triceratops       0.0250
-Stegosaurus       0.0200
-Spinosaurus       0.0143
-Brachiosaurus     0.0071
-```
+    ```
+    Velociraptor      0.1333
+    Oviraptor         0.0750
+    Tyrannosaurus     0.0288
+    Triceratops       0.0250
+    Stegosaurus       0.0200
+    Spinosaurus       0.0143
+    Brachiosaurus     0.0071
+    ```
+
+---
 
 ## Create a custom species
 
-```python
+```python title="custom_dino.py"
 from dinosoft import Dinosaur, DietType, hunger_factor
 
 ankylosaurus = Dinosaur(
@@ -122,17 +128,19 @@ print(f"HF:      {hunger_factor(ankylosaurus)}")
 print(f"Ratio:   {ankylosaurus.food_ratio():.4f}")
 ```
 
-Output:
+??? success "Output"
 
-```
-Name:    Ankylosaurus
-HF:      150.0
-Ratio:   0.0250
-```
+    ```
+    Name:    Ankylosaurus
+    HF:      150.0
+    Ratio:   0.0250
+    ```
+
+---
 
 ## Export to JSON
 
-```python
+```python title="to_json.py"
 import json
 from dinosoft import load_sample_data
 
@@ -152,9 +160,11 @@ records = [
 print(json.dumps(records, indent=2))
 ```
 
+---
+
 ## Compare two specific dinosaurs
 
-```python
+```python title="compare.py"
 from dinosoft import load_sample_data, hunger_factor
 
 data = {d.name: d for d in load_sample_data()}
@@ -169,12 +179,12 @@ print(f"{'Hunger Factor':20s} {hunger_factor(rex):10.1f} {hunger_factor(brach):1
 print(f"{'Food ratio':20s} {rex.food_ratio():10.4f} {brach.food_ratio():10.4f}")
 ```
 
-Output:
+??? success "Output"
 
-```
-                          T-Rex    Brachio
-Weight (kg)               8,000     56,000
-Food (kg/day)               230        400
-Hunger Factor             230.0      400.0
-Food ratio               0.0288     0.0071
-```
+    ```
+                              T-Rex    Brachio
+    Weight (kg)               8,000     56,000
+    Food (kg/day)               230        400
+    Hunger Factor             230.0      400.0
+    Food ratio               0.0288     0.0071
+    ```

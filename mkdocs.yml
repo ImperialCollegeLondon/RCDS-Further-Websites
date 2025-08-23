@@ -1,54 +1,128 @@
 site_name: DinoSoft Documentation
 site_description: Documentation for the DinoSoft dinosaur dietary analysis library
+site_url: ""
 repo_url: https://github.com/ImperialCollegeLondon/RCDS-Further-Websites
 repo_name: RCDS-Further-Websites
 
 theme:
   name: material
-  # TODO: Add a palette section with light/dark toggle
-  #   See: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
-  # TODO: Add features like navigation.tabs, navigation.top, content.code.copy,
-  #   content.code.annotate, search.suggest, search.highlight
-  #   See: https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
-  # TODO: Add a custom font pairing
-  #   See: https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/
-  # TODO: Add custom admonition icons
-  #   See: https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonition-icons
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: octicons/tag-16
+      tip: octicons/squirrel-16
+      warning: octicons/alert-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
 
 plugins:
   - search
-  # TODO: Add mkdocstrings plugin for auto-generated API reference
-  #   pip install 'mkdocstrings[python]'
-  #   See: https://mkdocstrings.github.io/
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            heading_level: 2
+            docstring_style: google
 
-# TODO: Add markdown_extensions section. Useful extensions include:
-#   - admonition                  (callout boxes: !!! note, !!! warning, etc.)
-#   - pymdownx.details            (collapsible callouts: ??? note)
-#   - pymdownx.superfences        (fenced code blocks + mermaid diagrams)
-#   - pymdownx.highlight          (syntax highlighting with line numbers)
-#   - pymdownx.tabbed             (content tabs: === "Tab 1")
-#   - pymdownx.tasklist           (checkbox task lists)
-#   - pymdownx.arithmatex         (LaTeX math rendering)
-#   - pymdownx.emoji              (icons and emojis: :material-dinosaur:)
-#   - attr_list + md_in_html      (grids and cards)
-#   - footnotes                   (footnote references)
-#   - def_list                    (definition lists for API docs)
-#   - abbr                        (abbreviation tooltips)
-#   - pymdownx.keys               (keyboard key rendering: ++ctrl+c++)
-#   - pymdownx.mark               (highlighted text: ==marked==)
-#   - pymdownx.caret              (superscript: ^text^)
-#   - pymdownx.tilde              (subscript and strikethrough: ~text~)
-#   See: https://squidfunk.github.io/mkdocs-material/setup/extensions/
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
 
-# TODO: Add extra_javascript for MathJax if using pymdownx.arithmatex
-# TODO: Add extra section with social links and custom page statuses
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
-  # TODO: Consider a nav to group into sections for navigation.tabs:
-  # nav:
-  #   - Getting Started:
-  #     - Quickstart: quickstart.md
-  #   - Learning:
-  #     - Tutorial: tutorial.md
-  #     - How-to: how-to.md
-  #   etc.
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ImperialCollegeLondon/RCDS-Further-Websites
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Quickstart: quickstart.md
+  - Learning:
+    - Tutorial: tutorial.md
+  - Guides:
+    - How-to Guides: how-to.md
+  - Understanding:
+    - Explanation: explanation.md
+  - Reference:
+    - API Reference: reference/api.md
+  - Showcase:
+    - Examples: examples.md
+    - Templates: templates.md
