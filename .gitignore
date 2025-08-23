@@ -1,0 +1,3 @@
+# Python cache and build
+__pycache__
+*.egg-info
