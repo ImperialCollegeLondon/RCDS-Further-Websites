@@ -46,13 +46,11 @@ and trends in the dietary habits of dinosaurs. We will be comparing the
 diets of herbivorous and carnivorous dinosaurs to understand their food
 preferences and ecological roles.
 
-We will be using R programming for our data analysis. Here is a sample
-of how we will load the data into R:
+We will be using Python for our data analysis. Here is a sample
+of how we will load the library in Python:
 
-```r
-library(tidyverse) # Load the necessary libs
-
-dino_data <- read_csv("dino_data.csv") # Read the data
+```python
+import dinosoft # Load the necessary lib
 ```
 
 ### Data Visualisation
