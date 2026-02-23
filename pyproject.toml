@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dinodiet"
+version = "0.5.0"
+description = "Analyse the dietary habits of dinosaurs."
+readme = "README.md"
+license = {text = "CC0-1.0"}
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev  = ["pytest"]

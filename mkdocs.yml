@@ -1,0 +1,54 @@
+site_name: DinoSoft Documentation
+site_description: Documentation for the DinoSoft dinosaur dietary analysis library
+repo_url: https://github.com/ImperialCollegeLondon/RCDS-Further-Websites
+repo_name: RCDS-Further-Websites
+
+theme:
+  name: material
+  # TODO: Add a palette section with light/dark toggle
+  #   See: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+  # TODO: Add features like navigation.tabs, navigation.top, content.code.copy,
+  #   content.code.annotate, search.suggest, search.highlight
+  #   See: https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+  # TODO: Add a custom font pairing
+  #   See: https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/
+  # TODO: Add custom admonition icons
+  #   See: https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonition-icons
+
+plugins:
+  - search
+  # TODO: Add mkdocstrings plugin for auto-generated API reference
+  #   pip install 'mkdocstrings[python]'
+  #   See: https://mkdocstrings.github.io/
+
+# TODO: Add markdown_extensions section. Useful extensions include:
+#   - admonition                  (callout boxes: !!! note, !!! warning, etc.)
+#   - pymdownx.details            (collapsible callouts: ??? note)
+#   - pymdownx.superfences        (fenced code blocks + mermaid diagrams)
+#   - pymdownx.highlight          (syntax highlighting with line numbers)
+#   - pymdownx.tabbed             (content tabs: === "Tab 1")
+#   - pymdownx.tasklist           (checkbox task lists)
+#   - pymdownx.arithmatex         (LaTeX math rendering)
+#   - pymdownx.emoji              (icons and emojis: :material-dinosaur:)
+#   - attr_list + md_in_html      (grids and cards)
+#   - footnotes                   (footnote references)
+#   - def_list                    (definition lists for API docs)
+#   - abbr                        (abbreviation tooltips)
+#   - pymdownx.keys               (keyboard key rendering: ++ctrl+c++)
+#   - pymdownx.mark               (highlighted text: ==marked==)
+#   - pymdownx.caret              (superscript: ^text^)
+#   - pymdownx.tilde              (subscript and strikethrough: ~text~)
+#   See: https://squidfunk.github.io/mkdocs-material/setup/extensions/
+
+# TODO: Add extra_javascript for MathJax if using pymdownx.arithmatex
+# TODO: Add extra section with social links and custom page statuses
+
+
+  # TODO: Consider a nav to group into sections for navigation.tabs:
+  # nav:
+  #   - Getting Started:
+  #     - Quickstart: quickstart.md
+  #   - Learning:
+  #     - Tutorial: tutorial.md
+  #     - How-to: how-to.md
+  #   etc.
