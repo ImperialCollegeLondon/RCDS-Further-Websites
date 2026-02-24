@@ -325,11 +325,9 @@ There is more you can do:
 - Enable task list checkboxes with `pymdownx.tasklist`
 - Add footnotes, definition lists, and abbreviation tooltips
 - Set up a `nav:` section in `mkdocs.yml` with grouped tabs
-- Create a GitHub Actions workflow to deploy automatically
-  (see `docs/templates.md` for a ready-made workflow)
 
 The finished version of these docs (with all Material features applied)
-is available from your instructor for reference.
+is available from the `improve-docs` branch for reference.
 
 ---
 
