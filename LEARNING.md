@@ -355,6 +355,21 @@ theme:
   # TODO: Add custom admonition icons
   #   See: https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonition-icons
 
+  features:
+    - navigation.instant
+  # TODO: Add various features from MkDocs
+  # - navigation.sections
+  # - navigation.expand
+  # - navigation.top
+  # - navigation.footer
+  # - navigation.indexes
+  # - toc.follow
+  # - search.suggest
+  # - search.highlight
+  # - content.tabs.link
+  # - content.code.copy
+  # - content.code.annotate
+
 plugins:
   - search
   # TODO: Add mkdocstrings plugin for auto-generated API reference
