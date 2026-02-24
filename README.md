@@ -2,6 +2,9 @@
 
 # DinoDiet
 
+> [!TIP]
+> If you are self-studying, please read through [LEARNING.md](LEARNING.md)
+
 **Principal Investigator:** Dr. Geller[^1]
 
 ## Project Description
